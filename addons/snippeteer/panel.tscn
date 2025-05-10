@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://cnyqoumoisoqr"]
+
+[node name="Snippet Panel" type="VBoxContainer"]
+custom_minimum_size = Vector2(300, 300)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 100.0
+offset_top = 100.0
+offset_right = 100.0
+offset_bottom = 100.0
+size_flags_vertical = 3
+
+[node name="@Label@23596" type="Label" parent="."]
+layout_mode = 2
+text = "Snippet Library"
+
+[node name="SnippetList" type="ItemList" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="@VScrollBar@23597" type="VScrollBar" parent="SnippetList"]
+visible = false
+layout_mode = 0
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+max_value = 85.0
+page = 85.0
+
+[node name="@HScrollBar@23598" type="HScrollBar" parent="SnippetList"]
+visible = false
+layout_mode = 0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = -4.0
+offset_right = -4.0
+offset_bottom = -4.0
+max_value = 0.0
+
+[node name="TriggerEdit" type="LineEdit" parent="."]
+layout_mode = 2
+placeholder_text = "Trigger keyword"
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="BodyEdit" type="TextEdit" parent="."]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "Snippet body (use [1], [2]...)"
+
+[node name="@HScrollBar@23599" type="HScrollBar" parent="BodyEdit"]
+visible = false
+layout_mode = 0
+offset_top = 88.0
+offset_right = 288.0
+offset_bottom = 100.0
+max_value = 0.0
+
+[node name="@VScrollBar@23600" type="VScrollBar" parent="BodyEdit"]
+visible = false
+layout_mode = 0
+offset_left = 288.0
+offset_top = 5.0
+offset_right = 300.0
+offset_bottom = 90.0
+max_value = 0.0
+
+[node name="@Timer@23601" type="Timer" parent="BodyEdit"]
+wait_time = 0.65
+
+[node name="@Timer@23602" type="Timer" parent="BodyEdit"]
+wait_time = 0.05
+
+[node name="@Timer@23603" type="Timer" parent="BodyEdit"]
+wait_time = 3.0
+one_shot = true
+
+[node name="@Button@23604" type="Button" parent="."]
+layout_mode = 2
+text = "Save Snippet"
