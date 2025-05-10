@@ -1,28 +1,25 @@
-# Godot Inspector Tabs
-Godot add-on for spliting the inspector property classes into its own tabs. So that its shorter and require less scrolling.
-There's also a jump-scroll option that didn't hide the properties in different tabs.
+# Godot Snippeteer Plugin
 
-Vertical layout           |  Horizontal layout
-:-------------------------:|:-------------------------:
-![](https://github.com/user-attachments/assets/fc5455d2-c48d-4e1f-b51f-4c09e2d4eb83)  |  ![](https://github.com/user-attachments/assets/e2849982-a57f-46d6-bcfa-c38676032b9d)
+Adds functionality to replace keywords with parameterized code snippets.
 
-# Features
-- An option for horizontal/vertical tab layout. (Can be changed in the `editor_settings/interface/inspector/tab_layout`. Make sure advanced settings is on)
-- An option to add/remove text and icon on the tabs. (Can be changed in the `editor_settings/interface/inspector/tab_style`)
-- A Jump-scroll option that didn't hide the properties in different tabs. (Can be changed in the `editor_settings/interface/inspector/tab_property_mode`)
-- An option to put abstract class into its child tab instead of its own. so that its easier to find. (Can be changed in the `editor_settings/interface/inspector/merge_abstract_class_tabs`)
-- The built-in property filter will search for properties on all tabs.
-- Settings is synced to all projects.
-- Support custom script classes and GDExtension classes.
-- Favorite property will be shown in all tabs.
+**Features:**
+- In-editor snippet management  
+- Multi-caret parameters  
+- Explicit cursor placement  
+- It likes cats 😺
 
-# Known issues
-- Resizing the inspector dock is kind of glitchy especially if the dock is made floating.
+## Usage
 
-# Installing
-You can install it from the [asset library](https://godotengine.org/asset-library/asset/3951).
+After enabling the plugin, you should see a "Snippet" tab in the Inspector dock.  
+There, you can easily add, edit, and save all your snippets.
 
-You can also install it manually:
-- Download the files.
-- Place the addon folder into your the root of your project.
-- In the project, go to `project_settings/plugins` and enable the plugin.
+If you type a snippet keyword and press the configured snippet key (default: *Tab*), the keyword will be replaced by the snippet, and all occurrences of the first defined parameter will be selected.  
+Each subsequent press of the snippet key jumps to the next parameter occurrence.  
+Finally, it jumps to the defined caret position (**|**) or, if none is defined, to the end of the snippet text.
+
+Just like you're used to from other popular editors.
+
+## Snippets
+
+Snippets are simply the text that should replace a keyword.  
+You can add parameter placeholders using **$1**, **$2**, ... and define a final caret position with **|**.
