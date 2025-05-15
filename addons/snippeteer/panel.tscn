@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cnyqoumoisoqr"]
+[gd_scene format=3 uid="uid://f22bohqq63ev"]
 
 [node name="Snippet Panel" type="VBoxContainer"]
 custom_minimum_size = Vector2(300, 300)

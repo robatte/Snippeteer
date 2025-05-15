@@ -1,0 +1,99 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0tlpea0mq0o"]
+
+[ext_resource type="Script" uid="uid://b4hf1ekveb3c2" path="res://addons/snippeteer/ui/placeholder_highlighter.gd" id="1_bqqta"]
+[ext_resource type="Script" uid="uid://7la64w5lkyvh" path="res://addons/snippeteer/ui/snippet_edit.gd" id="2_bqqta"]
+
+[sub_resource type="SyntaxHighlighter" id="SyntaxHighlighter_wt31g"]
+script = ExtResource("1_bqqta")
+
+[node name="PanelContainer" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Snippets Library"
+horizontal_alignment = 1
+
+[node name="MainSplit" type="VSplitContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SnippetDisplayList" type="ItemList" parent="MainSplit"]
+layout_mode = 2
+size_flags_vertical = 3
+tooltip_text = "Your snippet library"
+auto_height = true
+text_overrun_behavior = 0
+
+[node name="EditArea" type="VBoxContainer" parent="MainSplit"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="Label" parent="MainSplit/EditArea"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Snippet"
+horizontal_alignment = 1
+vertical_alignment = 3
+
+[node name="KeywordLabel" type="Label" parent="MainSplit/EditArea"]
+layout_mode = 2
+text = "Keyword:"
+vertical_alignment = 1
+
+[node name="KeywordEdit" type="LineEdit" parent="MainSplit/EditArea"]
+layout_mode = 2
+
+[node name="SnippetBodyLabel" type="Label" parent="MainSplit/EditArea"]
+layout_mode = 2
+text = "Snippet"
+
+[node name="BodyTextEdit" type="TextEdit" parent="MainSplit/EditArea"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 18
+placeholder_text = "# This Code will replace the keyword and then let you write at the placeholder markers ($1, $2, ..., $9).  
+# You can place multiple placeholder-markers with the same number. That will let you write code at multiple carets simultanely. 
+# If you place a caret-marker | the text-cursor will land there after processing all placeholders.
+# Example:
+signal $3
+@export var $1 := $2:
+	set(value):
+		$1 = value
+		$3.emit()"
+wrap_mode = 1
+scroll_smooth = true
+scroll_fit_content_height = true
+syntax_highlighter = SubResource("SyntaxHighlighter_wt31g")
+highlight_all_occurrences = true
+draw_tabs = true
+script = ExtResource("2_bqqta")
+
+[node name="ButtonBox" type="HBoxContainer" parent="MainSplit/EditArea"]
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 1
+
+[node name="NewButton" type="Button" parent="MainSplit/EditArea/ButtonBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "New"
+
+[node name="SaveButton" type="Button" parent="MainSplit/EditArea/ButtonBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+text = "Save/Update"
+
+[node name="DeleteButton" type="Button" parent="MainSplit/EditArea/ButtonBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Delete"

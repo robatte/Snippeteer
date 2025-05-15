@@ -1,21 +1,14 @@
 [
 	{
-		"body": [
-			"for i in range(10):"
-		],
-		"trigger": "fori"
+		"keyword": "fori",
+		"snippet": "for i in range(10):"
 	},
 	{
-		"body": [
-			"for var i := 0; i < $1; i += 1: |",
-			"    $2 "
-		],
-		"trigger": "fori2"
+		"keyword": "fori2",
+		"snippet": "for var i := 0; i < $1; i += 1: |\n\t print($1,  $2, $3, $4, $5, $6, \n\t$7, $8, $9 )"
 	},
 	{
-		"body": [
-			"for i in range(10):"
-		],
-		"trigger": "robs"
+		"keyword": "test",
+		"snippet": ""
 	}
 ]
